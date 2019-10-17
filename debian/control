@@ -1,0 +1,13 @@
+Priority: optional
+Maintainer: Ronan Le Martret <ronan.lemartret@iot.bzh>
+Source: can-dkms
+Build-Depends:
+ debhelper (>= 5),
+Standards-Version: 5.0
+Homepage: http://git.ovh.iot/iotbzh/j1939-driver
+
+Package: can-dkms
+Section: kernel
+Architecture: any
+Depends: linux-headers-generic (>= 5.0), dkms
+Description: can j1939 kernel modules.

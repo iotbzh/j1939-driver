@@ -1,0 +1,17 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Uncomment this to turn on verbose mode.
+
+export NAME = $(shell head -n 1 debian/changelog | cut -d' ' -f1)
+export DKMS_NAME = $(shell echo $(NAME) | cut -d'-' -f1)
+export VERSION = $(shell head -n 1 debian/changelog | cut -d'(' -f2 | cut -d')' -f1 | cut -d'-' -f1)
+	
+%:
+	dh $@
+
+override_dh_auto_build:
+
+override_dh_auto_install:
+	mkdir -p /usr/src/packages/BUILD/debian/tmp/usr/src/$(NAME);
+	tar xvf /usr/src/packages/SOURCES/$(NAME)-$(VERSION).tar.gz  -C /usr/src/packages/BUILD/debian/tmp/usr/src/
+	mv /usr/src/packages/BUILD/debian/tmp/usr/src/$(NAME)-$(VERSION) /usr/src/packages/BUILD/debian/tmp/usr/src/$(DKMS_NAME)-$(VERSION)

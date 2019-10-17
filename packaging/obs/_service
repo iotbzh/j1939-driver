@@ -1,0 +1,18 @@
+<services>
+  <service name="tar_scm">
+    <param name="url">http://git.ovh.iot/iotbzh/j1939-driver.git</param>
+    <param name="scm">git</param>
+    <param name="version">5.0</param>
+    <param name="revision">master</param>
+    <param name="filename">can-dkms</param>
+    <param name="extract">packaging/rpm/can-dkms.spec</param>
+    <param name="extract">packaging/rpm/common.postinst</param>
+    <param name="extract">packaging/deb/can-dkms_5.0.dsc</param>
+    <param name="extract">packaging/deb/debian.control</param>
+  </service>
+  <service name="recompress">
+    <param name="compression">gz</param>
+    <param name="file">*.tar</param>
+  </service>
+  <service name="set_version" />
+</services>
