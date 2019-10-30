@@ -1,4 +1,4 @@
-# J1939
+# j1939
 
 ## Install package from OBS
 
@@ -23,11 +23,13 @@ sudo wget -O /etc/yum.repos.d/J1939.repo https://download.opensuse.org/repositor
 sudo dnf install can-dkms
 ```
 
+**Note**: You can find the OBS project [here]([https://build.opensuse.org/package/show/home:iotbzh:RedPesk/j1939)
+
 ## Test kernel module installation
 
 ```bash
 sudo /usr/sbin/modprobe can-j1939
-sudo infomod can-j1939
+sudo modinfo can-j1939
 ```
 
 ## Extract Linux driver
